@@ -1,7 +1,13 @@
 {
   "name": "darcio-founders-agreement-review",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Clause-by-clause review page for the Darcio Labs Founders' Agreement",
-  "engines": { "node": ">=20" }
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "if [ -n \"$CONVEX_DEPLOY_KEY\" ]; then npx convex deploy; else echo 'CONVEX_DEPLOY_KEY not set; skipping Convex deploy'; fi"
+  },
+  "dependencies": {
+    "convex": "1.45.0"
+  }
 }

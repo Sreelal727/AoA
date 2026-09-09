@@ -37,7 +37,8 @@ module.exports = async (req, res) => {
     const at = new Date().toISOString();
     const entry = {
       id: clauseId + ':' + at + ':' + crypto.randomBytes(4).toString('hex'),
-      clauseId, type, status, text, at,
+      clauseId, type, text, at,
+      ...(status !== undefined ? { status } : {}),
       by: user.id, byName: user.name, byRole: user.role,
     };
     const saved = await store.addEntry(entry).catch((e) => ({ error: e.message }));

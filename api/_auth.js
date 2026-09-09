@@ -3,7 +3,11 @@
 const crypto = require('crypto');
 
 const SALT = 'darcio-founders-agreement-review';
-const SECRET = process.env.AUTH_SECRET || 'darcio-fa-review-fallback-secret-2026';
+// Token signing secret: AUTH_SECRET if set, otherwise derived from the Convex
+// deploy key (which only Vercel holds), otherwise a fallback for local testing.
+const SECRET = process.env.AUTH_SECRET
+  || (process.env.CONVEX_DEPLOY_KEY && crypto.createHash('sha256').update('sign:' + process.env.CONVEX_DEPLOY_KEY).digest('hex'))
+  || 'darcio-fa-review-fallback-secret-2026';
 const TOKEN_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
 // Passwords are stored as PBKDF2-SHA256 hashes (120k rounds). To change a
