@@ -6,6 +6,10 @@ agreement is shown with three decisions: **Include as drafted**, **Needs modific
 comments. Every decision and comment is stamped with the server time and the reviewer's
 name, and every signed-in reviewer sees the same shared history.
 
+Either account can also **propose a new clause** (in an existing section or a new one), edit
+its text or withdraw it; every version is kept. A guided **tour** starts on each account's
+first sign-in and can be replayed from the "Take a tour" button.
+
 ## Files
 
 | Path | Purpose |

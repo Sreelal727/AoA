@@ -75,7 +75,9 @@ async function addEntry(entry) {
   const b = backend();
   if (b === 'convex') {
     const { id, ...rest } = entry;
-    await convex().mutation(fnRef('entries:add'), { entryId: id, ...rest, status: rest.status === undefined ? undefined : String(rest.status) });
+    const args = { entryId: id };
+    for (const [k, val] of Object.entries(rest)) if (val !== undefined) args[k] = val;
+    await convex().mutation(fnRef('entries:add'), args);
     return true;
   }
   if (b === 'redis') { await redis(['HSET', HASH_KEY, entry.id, JSON.stringify(entry)]); return true; }
