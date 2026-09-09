@@ -28,7 +28,8 @@ Optional environment variables:
 
 | Name | Purpose |
 | --- | --- |
-| `AUTH_SECRET` | Secret used to sign session tokens. Set your own random string in production. |
+| `AUTH_SECRET` | Secret used to sign session tokens. **Set this in production** (Project → Settings → Environment Variables), because the fallback value is visible in this repository. |
+| `CA_PASSWORD_HASH`, `MD_PASSWORD_HASH` | Override a user's password hash without editing code. |
 | `REVIEW_KEY` | Redis hash key for the entries (default `darcio:founders-agreement:entries`). |
 
 Until the Redis store is connected the API reports `storage: false` and the page saves
@@ -36,5 +37,9 @@ entries in the viewer's own browser only, with a warning banner.
 
 ## Accounts
 
-Usernames and salted password hashes live in `api/_auth.js`. Change a password by updating
-the hash there (see the `sha256` helper) and redeploying.
+Usernames and PBKDF2 password hashes live in `api/_auth.js`. To change a password, generate
+a new hash and either paste it into that file or set it as the matching environment variable:
+
+```
+node -e "console.log(require('./api/_auth').hashPassword('NewPassword'))"
+```

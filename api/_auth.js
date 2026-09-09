@@ -6,23 +6,25 @@ const SALT = 'darcio-founders-agreement-review';
 const SECRET = process.env.AUTH_SECRET || 'darcio-fa-review-fallback-secret-2026';
 const TOKEN_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
-function sha256(s) {
-  return crypto.createHash('sha256').update(s).digest('hex');
+// Passwords are stored as PBKDF2-SHA256 hashes (120k rounds). To change a
+// password, run in Node:  node -e "console.log(require('./api/_auth').hashPassword('NewPassword'))"
+// and paste the result into the user's `hash` below.
+function hashPassword(password) {
+  return crypto.pbkdf2Sync(String(password), SALT, 120000, 32, 'sha256').toString('hex');
 }
 
-// Passwords are stored as salted SHA-256 hashes.
 const USERS = {
   'ca@pfco': {
     id: 'ca@pfco',
     name: 'CA (PFCO)',
     role: 'Chartered Accountant',
-    hash: sha256(SALT + ':' + 'Darcio@012'),
+    hash: process.env.CA_PASSWORD_HASH || '145d675df6ad574d64bf18c9689317010243feaff99057481661a0f50e36bae9',
   },
   'md@darcio': {
     id: 'md@darcio',
     name: 'MD (Darcio)',
     role: 'Managing Director',
-    hash: sha256(SALT + ':' + 'Darcio@012'),
+    hash: process.env.MD_PASSWORD_HASH || '145d675df6ad574d64bf18c9689317010243feaff99057481661a0f50e36bae9',
   },
 };
 
@@ -45,7 +47,7 @@ function publicUser(u) {
 function login(username, password) {
   const u = USERS[String(username || '').trim().toLowerCase()];
   if (!u || typeof password !== 'string') return null;
-  const given = Buffer.from(sha256(SALT + ':' + password));
+  const given = Buffer.from(hashPassword(password));
   const want = Buffer.from(u.hash);
   if (given.length !== want.length || !crypto.timingSafeEqual(given, want)) return null;
   const payload = b64url(JSON.stringify({ u: u.id, exp: Date.now() + TOKEN_TTL_MS }));
@@ -85,4 +87,4 @@ function send(res, status, body) {
   res.end(JSON.stringify(body));
 }
 
-module.exports = { login, verify, readJson, send };
+module.exports = { login, verify, readJson, send, hashPassword };
