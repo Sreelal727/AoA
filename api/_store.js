@@ -15,7 +15,7 @@
 
 const HASH_KEY = process.env.REVIEW_KEY || 'darcio:founders-agreement:entries';
 
-const CONVEX_URL = process.env.CONVEX_URL || process.env.NEXT_PUBLIC_CONVEX_URL;
+const CONVEX_URL = process.env.CONVEX_URL || process.env.NEXT_PUBLIC_CONVEX_URL || 'https://incredible-crab-190.convex.cloud';
 const CONVEX_KEY = process.env.CONVEX_DEPLOY_KEY;
 const REDIS_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
 const REDIS_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;

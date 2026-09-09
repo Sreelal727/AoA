@@ -25,7 +25,7 @@ storage uses [Convex](https://convex.dev) (free tier, no card needed):
 1. Create a Convex project at dashboard.convex.dev. Open its **Settings**: copy the
    **Deployment URL** (`https://….convex.cloud`) and generate a **Production deploy key**.
 2. In the Vercel project open **Settings → Environment Variables** and add both:
-   `CONVEX_URL` = the deployment URL, `CONVEX_DEPLOY_KEY` = the deploy key.
+   `CONVEX_DEPLOY_KEY` = the deploy key. (`CONVEX_URL` is only needed if the deployment URL in `api/_store.js` changes.)
 3. Redeploy. The Vercel build runs `npx convex deploy`, which publishes the functions in
    `convex/` to your Convex deployment. The page's status dot turns green ("Live") and the
    yellow "shared storage not connected" banner disappears.
