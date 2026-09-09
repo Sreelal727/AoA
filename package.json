@@ -1,0 +1,7 @@
+{
+  "name": "darcio-founders-agreement-review",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Clause-by-clause review page for the Darcio Labs Founders' Agreement",
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Darcio Founders' Agreement Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#F4F6F8; --surface:#FFFFFF; --surface-2:#EDF0F4; --line:#D5DBE3; --line-strong:#B9C2CE;
+  --ink:#16202C; --ink-2:#4A5666; --ink-3:#7B8794;
+  --accent:#2B4C7E; --accent-ink:#FFFFFF; --accent-soft:#E4EBF5;
+  --ok:#0E6F63; --ok-soft:#DDF1EC; --warn:#9A6A0B; --warn-soft:#FBEFD2; --bad:#A83226; --bad-soft:#F9E1DD;
+  --pending:#7B8794; --pending-soft:#E7EBF0;
+  --note-bg:#F7F3E8; --note-line:#E3D9BF; --note-ink:#5B4F33;
+  --shadow:0 1px 2px rgba(22,32,44,.06),0 8px 24px -12px rgba(22,32,44,.18);
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F151D; --surface:#171F2A; --surface-2:#1F2937; --line:#2C3849; --line-strong:#3C4A5E;
+    --ink:#E6EBF1; --ink-2:#B3BDCA; --ink-3:#7F8B9A;
+    --accent:#8FB0E8; --accent-ink:#0F151D; --accent-soft:#233551;
+    --ok:#5FCBB6; --ok-soft:#153A35; --warn:#E9B949; --warn-soft:#3D2F0F; --bad:#F08C80; --bad-soft:#45201C;
+    --pending:#8C98A6; --pending-soft:#2A3442;
+    --note-bg:#20211B; --note-line:#3C3A2B; --note-ink:#D3C9A8;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F151D; --surface:#171F2A; --surface-2:#1F2937; --line:#2C3849; --line-strong:#3C4A5E;
+  --ink:#E6EBF1; --ink-2:#B3BDCA; --ink-3:#7F8B9A;
+  --accent:#8FB0E8; --accent-ink:#0F151D; --accent-soft:#233551;
+  --ok:#5FCBB6; --ok-soft:#153A35; --warn:#E9B949; --warn-soft:#3D2F0F; --bad:#F08C80; --bad-soft:#45201C;
+  --pending:#8C98A6; --pending-soft:#2A3442;
+  --note-bg:#20211B; --note-line:#3C3A2B; --note-ink:#D3C9A8;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:var(--accent)}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- Login ---------- */
+.login{min-height:100vh;display:grid;place-items:center;padding:24px}
+.login-card{width:min(420px,100%);background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:32px}
+.brand{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.login h1{font-family:var(--serif);font-weight:600;font-size:26px;line-height:1.2;margin:8px 0 4px;text-wrap:balance}
+.login p{margin:0 0 20px;color:var(--ink-2);font-size:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:12.5px;font-weight:500;color:var(--ink-2)}
+.field input{padding:10px 12px;border:1px solid var(--line-strong);border-radius:6px;background:var(--surface);width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 14px;border-radius:6px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);font-weight:500;line-height:1.2;transition:background .12s,border-color .12s}
+.btn:hover{background:var(--surface-2)}
+.btn:disabled{opacity:.55;cursor:default}
+.btn-primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn-primary:hover{filter:brightness(1.08);background:var(--accent)}
+.btn-sm{padding:6px 10px;font-size:13px}
+.btn-block{width:100%}
+.error{color:var(--bad);font-size:13.5px;min-height:20px;margin:2px 0 10px}
+
+/* ---------- App shell ---------- */
+.topbar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:10px 20px}
+.topbar .title{font-family:var(--serif);font-weight:600;font-size:18px;white-space:nowrap}
+.topbar .brand{display:block;line-height:1}
+.grow{flex:1}
+.sync{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--pending)}
+.dot.live{background:var(--ok)}
+.dot.off{background:var(--warn)}
+.who{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
+.who b{font-size:13.5px;font-weight:600}
+.who span{font-size:12px;color:var(--ink-3)}
+.banner{background:var(--warn-soft);color:var(--warn);border-bottom:1px solid var(--line);padding:8px 20px;font-size:13.5px}
+.banner b{font-weight:600}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:0;max-width:1400px;margin:0 auto}
+.side{position:sticky;top:57px;height:calc(100vh - 57px);overflow:auto;border-right:1px solid var(--line);padding:18px 16px 40px;background:var(--surface)}
+.main{padding:24px 28px 120px;min-width:0}
+
+/* ---------- Sidebar ---------- */
+.side h2{font-size:11px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 8px;font-weight:500}
+.side h2:first-child{margin-top:0}
+.progress{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.stat{border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:var(--surface);text-align:left;display:flex;flex-direction:column;gap:2px}
+.stat.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.stat b{font-family:var(--mono);font-size:20px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--ink-2)}
+.stat.s-approved b{color:var(--ok)} .stat.s-flagged b{color:var(--warn)} .stat.s-rejected b{color:var(--bad)} .stat.s-pending b{color:var(--pending)}
+.bar{height:6px;border-radius:3px;background:var(--pending-soft);overflow:hidden;display:flex;margin-top:10px}
+.bar i{display:block;height:100%}
+.bar .approved{background:var(--ok)} .bar .flagged{background:var(--warn)} .bar .rejected{background:var(--bad)}
+.nav{list-style:none;margin:0;padding:0}
+.nav li{display:flex}
+.nav button{flex:1;display:flex;align-items:center;gap:8px;background:none;border:0;padding:6px 8px;border-radius:5px;text-align:left;font-size:13.5px;color:var(--ink-2)}
+.nav button:hover{background:var(--surface-2);color:var(--ink)}
+.nav .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);width:22px;flex:none}
+.nav .cnt{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-3);display:flex;gap:4px}
+.nav .cnt i{display:inline-block;width:8px;height:8px;border-radius:50%}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.tabs button{background:none;border:0;padding:8px 10px;font-size:13.5px;color:var(--ink-3);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button.active{color:var(--ink);border-bottom-color:var(--accent);font-weight:500}
+.feed{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.feed li{border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:var(--surface);cursor:pointer;font-size:13px}
+.feed li:hover{background:var(--surface-2)}
+.feed .meta{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-bottom:2px}
+.feed .txt{color:var(--ink-2);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.side-actions{display:flex;flex-direction:column;gap:8px;margin-top:20px}
+.empty{color:var(--ink-3);font-size:13px;padding:8px 0}
+
+/* ---------- Clauses ---------- */
+.section-head{display:flex;align-items:baseline;gap:12px;margin:36px 0 12px;padding-top:8px}
+.section-head:first-child{margin-top:0}
+.section-head .n{font-family:var(--mono);color:var(--ink-3);font-size:13px}
+.section-head h2{font-family:var(--serif);font-size:22px;font-weight:600;margin:0;text-wrap:balance}
+.clause{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin-bottom:14px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:72px}
+.clause.st-approved{border-left:4px solid var(--ok)}
+.clause.st-flagged{border-left:4px solid var(--warn)}
+.clause.st-rejected{border-left:4px solid var(--bad)}
+.clause.st-pending{border-left:4px solid var(--line-strong)}
+.clause-head{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line)}
+.clause-head .id{font-family:var(--mono);font-size:13px;color:var(--ink-3);min-width:38px}
+.clause-head h3{font-family:var(--serif);font-size:17px;font-weight:600;margin:0;flex:1;text-wrap:balance}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:99px;font-size:12px;font-weight:500;white-space:nowrap}
+.pill.approved{background:var(--ok-soft);color:var(--ok)} .pill.flagged{background:var(--warn-soft);color:var(--warn)} .pill.rejected{background:var(--bad-soft);color:var(--bad)} .pill.pending{background:var(--pending-soft);color:var(--pending)}
+.clause-body{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr)}
+.text{padding:16px 22px 18px;font-family:var(--serif);font-size:15.5px;line-height:1.6;border-right:1px solid var(--line)}
+.text p{margin:0 0 10px}
+.text p:last-child{margin-bottom:0}
+.text .lead{font-weight:600}
+.text ul{margin:0 0 10px;padding-left:22px}
+.text li{margin-bottom:4px}
+.text .tbl{overflow-x:auto;margin:6px 0 12px}
+.text table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:13.5px}
+.text th,.text td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+.text th{background:var(--surface-2);font-weight:600}
+.text td:has(> .num){font-variant-numeric:tabular-nums}
+.note{background:var(--note-bg);border:1px solid var(--note-line);color:var(--note-ink);border-radius:6px;padding:10px 14px;margin:8px 0 10px;font-size:14px;line-height:1.55}
+.note b{font-weight:600}
+.note-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:3px;opacity:.75}
+.review{padding:14px 18px 16px;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.review h4{margin:0;font-size:11px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.choices{display:grid;gap:6px}
+.choice{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line-strong);border-radius:6px;background:var(--surface);text-align:left;line-height:1.25}
+.choice:hover{background:var(--surface-2)}
+.choice .ic{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:600;flex:none;border:1.5px solid currentColor}
+.choice b{display:block;font-size:13.5px;font-weight:600}
+.choice span{display:block;font-size:12px;color:var(--ink-3)}
+.choice.approve{color:var(--ok)} .choice.flag{color:var(--warn)} .choice.reject{color:var(--bad)}
+.choice.on{box-shadow:inset 0 0 0 1.5px currentColor}
+.choice.on.approve{background:var(--ok-soft)} .choice.on.flag{background:var(--warn-soft)} .choice.on.reject{background:var(--bad-soft)}
+.choice b,.choice span{color:var(--ink)}
+.choice span{color:var(--ink-2)}
+.composer{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:6px;padding:10px;background:var(--surface-2)}
+.composer label{font-size:12.5px;font-weight:500}
+.composer textarea{width:100%;min-height:74px;resize:vertical;padding:8px 10px;border:1px solid var(--line-strong);border-radius:5px;background:var(--surface)}
+.composer .row{display:flex;gap:8px;justify-content:flex-end;align-items:center}
+.composer .err{color:var(--bad);font-size:12.5px;margin-right:auto}
+.history{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;max-height:360px;overflow:auto}
+.history li{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:13px;padding:8px 10px;border-radius:6px;background:var(--surface-2)}
+.history .when{font-family:var(--mono);font-size:11px;color:var(--ink-3);grid-column:2}
+.history .who{grid-column:1;grid-row:1/3;align-self:start;width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:11px;font-weight:600;font-family:var(--mono)}
+.history .what{grid-column:2}
+.history .what .tag{font-weight:600}
+.history .what .tag.approved{color:var(--ok)} .history .what .tag.flagged{color:var(--warn)} .history .what .tag.rejected{color:var(--bad)} .history .what .tag.pending{color:var(--pending)}
+.history .what .body{white-space:pre-wrap;color:var(--ink-2);margin-top:2px}
+.small{font-size:12.5px;color:var(--ink-3)}
+.linkish{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;font-size:12.5px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:13.5px;box-shadow:var(--shadow);z-index:50;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+.menu-btn{display:none}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:fixed;left:0;top:57px;width:min(320px,90vw);transform:translateX(-105%);transition:transform .2s;z-index:30;box-shadow:var(--shadow)}
+  .side.open{transform:none}
+  .menu-btn{display:inline-flex}
+  .main{padding:16px 14px 100px}
+  .clause-body{grid-template-columns:1fr}
+  .text{border-right:0;border-bottom:1px solid var(--line)}
+  .topbar .title{font-size:16px}
+  .who span{display:none}
+}
+@media print{
+  .topbar,.side,.composer,.choices,.menu-btn{display:none!important}
+  .layout{display:block}
+  .clause{break-inside:avoid;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<div id="loginView" class="login" hidden>
+  <form class="login-card" id="loginForm" autocomplete="on">
+    <span class="brand">Darcio Labs Private Limited</span>
+    <h1>Founders' Agreement review</h1>
+    <p>Sign in to review each clause, mark what can be adopted as drafted, and record what needs to change.</p>
+    <div class="field"><label for="u">Username</label><input id="u" name="username" autocomplete="username" required autofocus></div>
+    <div class="field"><label for="p">Password</label><input id="p" name="password" type="password" autocomplete="current-password" required></div>
+    <div class="error" id="loginError" aria-live="polite"></div>
+    <button class="btn btn-primary btn-block" id="loginBtn" type="submit">Sign in</button>
+  </form>
+</div>
+
+<div id="appView" hidden>
+  <header class="topbar">
+    <button class="btn btn-sm menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <div>
+      <span class="brand">Darcio Labs</span>
+      <span class="title">Founders' Agreement review</span>
+    </div>
+    <div class="grow"></div>
+    <div class="sync" id="sync"><span class="dot" id="syncDot"></span><span id="syncText">Connecting…</span></div>
+    <div class="who"><b id="whoName"></b><span id="whoRole"></span></div>
+    <button class="btn btn-sm" id="logoutBtn">Sign out</button>
+  </header>
+  <div class="banner" id="banner" hidden></div>
+
+  <div class="layout">
+    <aside class="side" id="side">
+      <h2>Progress</h2>
+      <div class="progress" id="stats"></div>
+      <div class="bar" id="bar"></div>
+      <div class="tabs" style="margin-top:18px">
+        <button class="active" data-tab="nav">Sections</button>
+        <button data-tab="feed">Activity</button>
+      </div>
+      <div id="tab-nav"><ul class="nav" id="nav"></ul></div>
+      <div id="tab-feed" hidden><ul class="feed" id="feed"></ul></div>
+      <div class="side-actions">
+        <button class="btn btn-sm" id="exportBtn">Download summary (CSV)</button>
+        <button class="btn btn-sm" id="printBtn">Print / save as PDF</button>
+      </div>
+    </aside>
+    <main class="main" id="main"></main>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script id="clauses-data" type="application/json">[{"num":"","title":"Cover and recitals","clauses":[{"id":"Cover","title":"Cover page and draft notice","section":"Cover and recitals","blocks":[{"type":"p","lead":"Founders' Agreement — Darcio Labs Private Limited.","text":"This Agreement records the terms on which the Founders hold shares in, govern, and work within Darcio Labs Private Limited. It is intended to be legally binding and should be read together with the Confidentiality Agreement, the Intellectual Property Assignment, the Restrictive Covenants and the Conflict of Interest Policy executed alongside it."},{"type":"p","text":"Ernakulam, Kerala · Governed by the laws of India"},{"type":"note","lead":"Draft for review.","text":"This document must be reviewed by a company secretary and a corporate lawyer before execution. Certain provisions — particularly the restrictive covenants — are subject to limits under Indian law that are noted where they arise."}]}]},{"num":"1","title":"1. Parties, Effective Date and Definitions","clauses":[{"id":"1.1","title":"Parties","section":"1. Parties, Effective Date and Definitions","blocks":[{"type":"p","text":"This Agreement is made between:"},{"type":"table","rows":[["Founder","Address","Role"],["Sreelal K","[address]","CEO & Co-Founder"],["Varun [surname]","[address]","CTO & Co-Founder"],["Srijith [surname]","[address]","Co-Founder & VP Marketing"]]},{"type":"p","text":"and Darcio Labs Private Limited, a company incorporated under the Companies Act, 2013, having its registered office at [address] (the \"Company\")."}]},{"id":"1.2","title":"Effective Date","section":"1. Parties, Effective Date and Definitions","blocks":[{"type":"p","text":"This Agreement takes effect on [date] (the \"Effective Date\"), being the date of allotment of shares to the Founders."}]},{"id":"1.3","title":"Definitions","section":"1. Parties, Effective Date and Definitions","blocks":[{"type":"table","rows":[["Term","Meaning"],["Business","The design, development, licensing and support of software products and platforms, and related services, carried on by the Company and any subsidiary."],["Board","The board of directors of the Company."],["Founder","Each of Sreelal K, Varun and Srijith, and \"Founders\" means all of them."],["Shares","Equity shares of the Company."],["Vested Shares","Shares that have vested in a Founder under Clause 4."],["Unvested Shares","Shares allotted to a Founder that have not yet vested."],["Fair Value","The value of a Share determined under Clause 12."],["Cessation Date","The date a Founder ceases to be actively involved in the Business, as determined under Clause 10."],["Confidential Information","As defined in Clause 15."]]}]},{"id":"1.4","title":"Background","section":"1. Parties, Effective Date and Definitions","blocks":[{"type":"p","text":"The Founders record the following as the background to this Agreement:"},{"type":"ul","items":["Sreelal K and Varun established the software business now known as Saiga Technologies, building custom enterprise platforms for clients in aviation training, retail, manufacturing and wellness, and have carried the business through its pre-revenue period on personal capital and effort.","Srijith joined subsequently to lead marketing, brand, after-sales retention and human resources, and has committed to the business on a full-time basis.","The Founders have agreed to incorporate Darcio Labs Private Limited as the holding entity for the business and its products, and to hold shares in it on the terms set out here.","The allocation of shares in Clause 2 reflects the Founders' assessment of their respective contributions of capital, risk, intellectual property, revenue and leadership. Each Founder confirms they have had the opportunity to take independent advice on it.","The Founders intend this Agreement to govern their relationship comprehensively, and to be reflected so far as lawful in the Articles of Association."]}]},{"id":"1.5","title":"Interpretation","section":"1. Parties, Effective Date and Definitions","blocks":[{"type":"p","text":"In this Agreement, unless the context requires otherwise:"},{"type":"ul","items":["headings are for convenience and do not affect interpretation;","references to a Clause or Schedule are to a clause or schedule of this Agreement;","\"including\" means including without limitation;","a reference to a statute includes any amendment or re-enactment of it;","where a figure appears in square brackets, it is a figure the Founders are to agree before execution, and the bracketed value is a proposal only;","boxed explanatory notes are included to record the reasoning behind a provision and to assist interpretation, but do not themselves create obligations."]},{"type":"note","lead":"On the explanatory notes.","text":"This Agreement contains boxed notes explaining why particular provisions exist. They are written for the Founders, their advisers and any future investor reading the document. Where a clause is later disputed, the notes are intended to show what the Founders meant, so that the Agreement is interpreted according to its purpose rather than only its letter."}]}]},{"num":"2","title":"2. Shareholding","clauses":[{"id":"2.1","title":"Allocation","section":"2. Shareholding","blocks":[{"type":"p","text":"The issued share capital of the Company is held as follows:"},{"type":"table","rows":[["Holder","Role","Holding"],["Sreelal K","CEO & Co-Founder","45%"],["Varun","CTO & Co-Founder","31%"],["Srijith","Co-Founder & VP Marketing","20%"],["ESOP Pool","Reserved, unissued","4%"],["Total","","100%"]]},{"type":"note","lead":"Why these percentages.","text":"The allocation was arrived at by starting from equal shares and adjusting for five factors: founding tenure and early risk, capital contributed and personal financial exposure, creation of product and intellectual property, generation of revenue and client relationships, and strategic leadership and final accountability. Sreelal K carries the largest holding because he funded operations, carries company liabilities personally pre-incorporation, and holds ultimate accountability. Varun's holding reflects that he leads technical delivery and the codebase, which is the Company's principal asset. Srijith's holding reflects three functional areas taken on after the founding period."}]},{"id":"2.2","title":"The ESOP Pool","section":"2. Shareholding","blocks":[{"type":"p","text":"4% of the share capital is reserved for grant to employees and is held unissued. Grants from the pool require approval under Clause 7. While unissued, the pool carries no voting rights and receives no distribution; distributions are shared among issued Shares only."},{"type":"p","text":"If the pool is exhausted and further equity is required for hiring, any increase requires approval under Clause 7 and dilutes all holders proportionately."},{"type":"note","lead":"Why reserve a pool now.","text":"Investors almost always require an employee option pool to exist before they invest, and they require it to be created from the pre-money valuation, which means the Founders alone bear it. A 4% pool carved today, at the Founders' own valuation, is cheaper than a 10% pool imposed during a funding negotiation when the Founders have less leverage. It also means that granting equity to an early senior hire does not require reopening this Agreement."}]},{"id":"2.3","title":"No other equity","section":"2. Shareholding","blocks":[{"type":"p","text":"Each Founder warrants that they hold no other shares, options, warrants or rights to acquire shares in the Company, and that no promise of equity has been made by them to any third party on behalf of the Company."}]}]},{"num":"3","title":"3. Roles, Commitment and Exclusivity","clauses":[{"id":"3.1","title":"Roles","section":"3. Roles, Commitment and Exclusivity","blocks":[{"type":"table","rows":[["Founder","Role","Functional authority"],["Sreelal K","CEO","Overall strategy and direction, client relationships, finance, and final accountability for the Business."],["Varun","CTO","Technology, architecture, product development, delivery and technical hiring."],["Srijith","VP Marketing","Marketing, brand, demand generation, after-sales retention management and human resources."]]},{"type":"p","text":"Each Founder has authority to make decisions within their functional area, within the approved budget and scope, and subject to the reserved matters in Clause 7."}]},{"id":"3.2","title":"Time commitment","section":"3. Roles, Commitment and Exclusivity","blocks":[{"type":"p","text":"Each Founder shall devote their full working time, attention and skill to the Business. \"Full working time\" means the Founder's principal professional occupation, and excludes any other employment, consultancy or business engagement."},{"type":"p","text":"Until April 2027, Founders draw no salary and are compensated through the profit distribution in Clause 8 and the acquisition incentive in Clause 9. This does not reduce the commitment required under this Clause."}]},{"id":"3.3","title":"Exclusivity","section":"3. Roles, Commitment and Exclusivity","blocks":[{"type":"p","text":"During the period a Founder holds Shares and is involved in the Business, that Founder shall not, without the prior written consent of the other Founders:"},{"type":"ul","items":["engage in, be employed by, advise, or hold a material interest in any business that competes with the Business, or that provides software development, licensing or related services to any client or prospective client of the Company;","solicit, divert or accept business from any client, prospective client or channel partner of the Company otherwise than for the Company;","hold any office, directorship or partnership in another entity engaged in a related field, whether or not remunerated;","undertake freelance, consultancy or contract work in the field of software development or related services."]},{"type":"p","text":"A shareholding of less than 2% in a listed company held purely as an investment is permitted."},{"type":"note","lead":"Why exclusivity is the provision that matters.","text":"Post-exit non-compete clauses are largely unenforceable in India under Section 27 of the Indian Contract Act, 1872. The obligation that Indian courts do enforce is exclusivity during the period of involvement. This Clause is therefore the Company's real protection against a Founder building a parallel business while still holding shares and drawing on the Company's relationships. It is drafted broadly for that reason."}]},{"id":"3.4","title":"Disclosure of outside interests","section":"3. Roles, Commitment and Exclusivity","blocks":[{"type":"p","text":"Each Founder shall disclose to the Board, in writing, every business interest, directorship, shareholding, advisory role or engagement they hold outside the Company, on the Effective Date and within seven days of any change. The Board maintains a register of these disclosures."},{"type":"p","text":"Failure to disclose a material outside interest is a Bad Leaver event under Clause 10."}]}]},{"num":"4","title":"4. Vesting","clauses":[{"id":"4.1","title":"Principle","section":"4. Vesting","blocks":[{"type":"p","text":"All Shares held by Founders are subject to reverse vesting. Shares are allotted on the Effective Date, but are earned over the vesting period. Unvested Shares are subject to repurchase by the Company under Clause 10 if a Founder ceases involvement before vesting completes."},{"type":"p","text":"This Clause applies equally to all three Founders. It is mutual protection, not a control mechanism."}]},{"id":"4.2","title":"Schedule","section":"4. Vesting","blocks":[{"type":"table","rows":[["Term","Provision"],["Vesting period","Four (4) years from the Vesting Commencement Date"],["Cliff","One (1) year. No Shares vest before the first anniversary."],["At the cliff","25% of the holding vests in a single tranche"],["Thereafter","The remaining 75% vests in 36 equal monthly instalments"],["Fully vested","On the fourth anniversary of the Vesting Commencement Date"]]}]},{"id":"4.3","title":"Application to each holding","section":"4. Vesting","blocks":[{"type":"table","rows":[["Founder","Total","At cliff","Monthly","Year 2","Year 3"],["Sreelal K","45%","11.25%","0.938%","22.50%","33.75%"],["Varun","31%","7.75%","0.646%","15.50%","23.25%"],["Srijith","20%","5.00%","0.417%","10.00%","15.00%"]]}]},{"id":"4.4","title":"Vesting Commencement Date","section":"4. Vesting","blocks":[{"type":"p","text":"The Vesting Commencement Date for each Founder reflects the date that Founder began substantive involvement in the Business, and is recorded in Schedule 1. It may precede the date of incorporation."}]},{"id":"4.5","title":"Worked example","section":"4. Vesting","blocks":[{"type":"p","text":"Suppose Varun ceases involvement 18 months after his Vesting Commencement Date."},{"type":"table","rows":[["","Calculation","Result"],["Total holding","","31.00%"],["Vested at the 12-month cliff","25% of 31%","7.75%"],["Vested in months 13 to 18","6 months x 0.646%","3.875%"],["Total vested at month 18","7.75% + 3.875%","11.625%"],["Unvested, subject to repurchase","31% - 11.625%","19.375%"]]},{"type":"p","text":"If Varun is a Good Leaver he retains 11.625% and the Company repurchases 19.375% at nominal value. If he is a Bad Leaver, the Company may also repurchase the 11.625% at the lower of Fair Value and the price he paid. Had he ceased at month 11, before the cliff, nothing would have vested and the entire 31% would be repurchased at nominal value."},{"type":"note","lead":"Why a cliff.","text":"The one-year cliff means a Founder who leaves within the first year takes no equity at all. This protects the remaining Founders from a short-lived participant walking away with a permanent stake. It applies equally to all three Founders, including the CEO, and it is the single most important protection in this Agreement."}]},{"id":"4.6","title":"Acceleration","section":"4. Vesting","blocks":[{"type":"p","text":"On a sale of the Company or a change of control, [50% / 100%] of each Founder's Unvested Shares shall vest immediately. Any acceleration applies uniformly to all Founders."},{"type":"p","text":"Single-trigger acceleration should be discussed with the Company's advisers, as investors commonly require double- trigger acceleration (change of control plus termination) instead."}]}]},{"num":"5","title":"5. The Board","clauses":[{"id":"5.1","title":"Composition","section":"5. The Board","blocks":[{"type":"p","text":"Each Founder is appointed a Director of the Company and shall remain a Director for so long as they hold not less than 10% of the issued share capital and are actively involved in the Business."},{"type":"table","rows":[["Director","Position"],["Sreelal K","Director · CEO & Co-Founder"],["Varun","Director · CTO & Co-Founder"],["Srijith","Director · Co-Founder & VP Marketing"]]}]},{"id":"5.2","title":"Meetings","section":"5. The Board","blocks":[{"type":"p","text":"The Board shall meet at least once each quarter. Quorum is two Directors. Decisions of the Board are taken by simple majority of Directors present, save for the reserved matters in Clause 7."},{"type":"p","text":"Minutes shall be kept of every meeting. Any Director's dissent shall be recorded in the minutes, together with the reason given."},{"type":"note","lead":"Why quorum is two and why dissent is minuted.","text":"A quorum of two allows the Company to function if one Director is unavailable, while ensuring no single Director can act alone. Minuting dissent serves two purposes: it gives a Director who disagrees a formal record that they did so, which matters if a decision later proves wrong; and it creates a written history of how the Founders have reasoned together, which any future investor will ask to see."}]},{"id":"5.3","title":"Removal and resignation","section":"5. The Board","blocks":[{"type":"p","text":"A Director may resign on thirty days' written notice to the Board. Removal of a Director requires approval under Clause 7 and shall be effected in accordance with the Companies Act, 2013. Resignation or removal as a Director does not of itself affect that person's shareholding, which is dealt with under Clause 10."}]}]},{"num":"6","title":"6. Appointment of Additional Directors and Founders","clauses":[{"id":"6.1","title":"Additional Directors","section":"6. Appointment of Additional Directors and Founders","blocks":[{"type":"p","text":"An additional Director may be appointed only with approval under Clause 7. Before any appointment, the Board shall record in writing:"},{"type":"ul","items":["the reason the appointment is required and the function the appointee will hold;","whether the appointment carries equity, and if so the source of those shares;","the terms on which the appointee is engaged, including time commitment and remuneration;","whether the appointee is required to execute this Agreement or a deed of adherence to it."]}]},{"id":"6.2","title":"Deed of adherence","section":"6. Appointment of Additional Directors and Founders","blocks":[{"type":"p","text":"Any person who acquires Shares, and any person appointed as a Director who holds or will hold Shares, shall execute a deed of adherence agreeing to be bound by this Agreement as if an original party. No Shares shall be allotted or transferred until that deed is executed."}]},{"id":"6.3","title":"Admitting a new Founder","section":"6. Appointment of Additional Directors and Founders","blocks":[{"type":"p","text":"A person may be admitted as a Founder only with the unanimous written agreement of all existing Founders. Shares issued to a new Founder shall be subject to vesting on the same basis as Clause 4, with a Vesting Commencement Date being their date of joining."},{"type":"p","text":"Where a new Founder is admitted, the Founders shall agree in writing before admission whether the shares come from the ESOP pool, from a fresh issue diluting all holders proportionately, or from a transfer by existing holders."}]},{"id":"6.4","title":"Investor-appointed directors","section":"6. Appointment of Additional Directors and Founders","blocks":[{"type":"p","text":"Where an investor is entitled under the terms of an investment to appoint a director, that appointment is governed by the investment agreement. The Founders shall not grant board appointment rights to an investor except with approval under Clause 7."}]}]},{"num":"7","title":"7. Reserved Matters","clauses":[{"id":"7.1","title":"Threshold","section":"7. Reserved Matters","blocks":[{"type":"p","text":"The following matters require the approval of Shareholders holding not less than 51% of the issued share capital, in addition to any approval required under the Companies Act, 2013:"},{"type":"ul","items":["raising external investment, and the valuation and terms of any round;","issuing, allotting or transferring any Shares, including grants from the ESOP pool;","incurring debt or a financial commitment above ₹[ ] in a single transaction or ₹[ ] in aggregate in a financial year;","approving the annual budget and any material departure from it;","setting the pricing policy and the floor price framework;","entering any strategic partnership, reseller or channel agreement;","declaring any distribution to Shareholders;","setting or changing Founder salary levels;","appointing or removing a Director;","incorporating, acquiring or disposing of any subsidiary;","selling, merging or winding up the Company, or disposing of a material part of its business or assets;","commencing or settling litigation above ₹[ ];","amending this Agreement."]},{"type":"note","lead":"What each reserved matter protects against.","text":"Investment and share issuance are reserved because they change who owns the Company. Debt is reserved because it creates obligations that outlast any one Founder's involvement. Budget and pricing are reserved because they determine whether the Company is profitable. Partnerships and channel agreements are reserved because they can commit the Company's relationships and pricing to third parties. Distributions and salaries are reserved because they move money out of the Company. Director appointments and removals, subsidiaries, sale and winding up are reserved because they are structural. The list is deliberately specific: anything not on it is an ordinary decision the responsible Founder can take."}]},{"id":"7.2","title":"Statutory thresholds","section":"7. Reserved Matters","blocks":[{"type":"p","text":"Matters requiring a special resolution under the Companies Act, 2013 — including amendment of the Articles of Association and alteration of share capital — require 75% approval as prescribed by law, irrespective of the threshold in Clause 7.1."},{"type":"note","lead":"Note on the arithmetic.","text":"At the current allocation, Varun and Srijith together hold 51% and can therefore pass a reserved matter without the CEO. The Founders have considered this and accept it. If at any point they wish every resolution to require the CEO's participation, the threshold in Clause 7.1 should be raised to 60%."}]}]},{"num":"8","title":"8. Profit Distribution","clauses":[{"id":"8.1","title":"Two phases","section":"8. Profit Distribution","blocks":[{"type":"p","text":"Distribution operates in two phases. Until April 2027 each Founder receives a fixed monthly drawing and the Company distributes surplus quarterly. From April 2027, subject to the stability test in Clause 8.7, the Company moves to full Founder salaries with annual distribution."}]},{"id":"8.2","title":"What is available for distribution","section":"8. Profit Distribution","blocks":[{"type":"p","text":"Distributable profit is what remains after every obligation of the Business has been met, in the following order:"},{"type":"table","rows":[["","Step","Description"],["1","Revenue collected","Payments actually received from clients in the period"],["2","Less — direct project costs","Delivery, infrastructure and third-party services attributable to the work"],["3","Less — acquisition incentives","Amounts payable under Clause 9"],["4","Less — operating expenses","Founder drawings and salaries, rent, tools, statutory contributions, overheads"],["5","= Profit before tax",""],["6","Less — tax","Corporate tax as assessed, and any provision for it"],["7","= Profit after tax",""],["8","Less — Development Reserve","Retained under Clause 8.3"],["9","= Distributable profit","Shared pro-rata among issued Shares"]]}]},{"id":"8.3","title":"The Development Reserve","section":"8. Profit Distribution","blocks":[{"type":"p","text":"Before any distribution, the Company shall retain funds for the development and protection of the Business. Two conditions must both be satisfied:"},{"type":"p","lead":"Cash floor.","text":"The Company shall at all times maintain liquid funds equal to not less than [six] months of its operating expenses. No distribution shall be made if it would take the Company below this floor. Client payments in a services business are irregular; salaries and obligations are not."},{"type":"p","lead":"Retention percentage.","text":"Not less than [40%] of profit after tax shall be retained in the Development Reserve for working capital, product development, hiring and contingency. The balance is distributable."},{"type":"p","text":"The cash floor and the retention percentage are reviewed annually alongside the budget and may be varied only by approval under Clause 7."}]},{"id":"8.4","title":"Phase One — monthly drawing and quarterly distribution until April 2027","section":"8. Profit Distribution","blocks":[{"type":"p","text":"Until 1 April 2027 each Founder receives a fixed monthly drawing, and the Company distributes surplus quarterly."},{"type":"p","lead":"Monthly drawing.","text":"Each Founder is paid a fixed monthly amount as director's remuneration, payable by the seventh day of the following month. This is an operating expense of the Company, deducted before profit is determined, and is subject to deduction of tax at source. It is authorised by Board resolution."},{"type":"table","rows":[["Period","Per Founder, per month","Total, per month","Basis"],["October, November and December 2026","₹30,000","₹90,000","Fixed"],["January 2027 to March 2027","₹55,000","₹1,65,000","Subject to the step-up test in Clause 8.5"],["From April 2027","Salary","Per budget","Subject to the stability test in Clause 8.7"]]},{"type":"p","text":"Quarterly distribution. Within thirty days of the end of each quarter, and provided the conditions in Clause 8.3 are met, the Board may declare an interim distribution of surplus based on management accounts for that quarter."},{"type":"ul","items":["Distribution is pro-rata to issued shareholding on the date of declaration.","Declaration requires approval under Clause 7 and a Board resolution.","Interim distributions are declared out of profits of the current financial year in accordance with Section 123 of the Companies Act, 2013.","Where the audited accounts for a year show that interim distributions exceeded distributable profit for that year, the excess shall be adjusted against the next distribution or repaid by the Founders pro-rata, at the Board's election."]},{"type":"note","lead":"Why quarterly comes with a clawback.","text":"Quarterly distributions are made on unaudited management accounts. If the audit later shows the year's profit was lower than the quarters suggested, the Company must be able to recover the difference. Without this, an over-distribution in Q1 becomes a permanent loss to the Company."}]},{"id":"8.5","title":"The step-up to ₹55,000","section":"8. Profit Distribution","blocks":[{"type":"p","text":"The increase from ₹30,000 to ₹55,000 with effect from January 2027 is not automatic. It takes effect only where the Board resolves, in December 2026, that all of the following are satisfied:"},{"type":"ul","items":["the cash floor in Clause 8.3 has been maintained without breach throughout October, November and December 2026;","the Company has no overdue statutory liability and no overdue borrowing;","committed and contracted forward revenue is sufficient to meet the increased drawing, together with all other operating expenses, for not less than the following six months;","the monthly drawing has not been suspended under Clause 8.6 during the preceding three months."]},{"type":"p","text":"If the test is not met in December 2026, the drawing continues at ₹30,000 and the Board reassesses at the end of each subsequent month. The increase takes effect from the month following confirmation, and is not applied retrospectively."},{"type":"p","text":"The Board may set the increase at an amount between ₹30,000 and ₹55,000 where the test is partly met, provided the amount is the same for each Founder."},{"type":"note","lead":"What the step-up costs.","text":"At ₹30,000 each, three Founders cost the Company ₹90,000 a month. At ₹55,000 each, that becomes ₹1,65,000 a month, or ₹19.8 lakh annualised. In a business where client payments arrive in irregular tranches, that is a material increase in fixed monthly obligation, and it is the reason the step-up is tested rather than assumed."}]},{"id":"8.6","title":"Suspension of the monthly drawing","section":"8. Profit Distribution","blocks":[{"type":"p","text":"The monthly drawing is not an unconditional obligation of the Company. It shall be suspended automatically, for all three Founders equally, where:"},{"type":"ul","items":["payment would take the Company below the cash floor in Clause 8.3; or","the Company has an overdue statutory liability or overdue borrowing; or","the Board resolves that suspension is necessary to meet payroll, client delivery obligations or creditor payments."]},{"type":"p","text":"Suspended drawings accrue as an unsecured interest-free debt owed by the Company to each Founder, and are paid when the cash floor is restored, in priority to any distribution under Clause 8.4. Drawings are suspended for all Founders together; no Founder is paid while another is suspended."},{"type":"note","lead":"Why this matters more than it looks.","text":"A fixed monthly drawing is a standing obligation regardless of what the Company has collected that month. In a services business where client payments arrive in irregular tranches, an unconditional obligation of that size can force the Company to pay Founders in a month it cannot pay a supplier or a salary. The suspension trigger keeps the drawing meaningful without letting it become the thing that breaks the Company."}]},{"id":"8.7","title":"Phase Two — salaried Founders and annual distribution from April 2027","section":"8. Profit Distribution","blocks":[{"type":"p","text":"From 1 April 2027, the Company shall replace the monthly drawing with full Founder salaries and move to annual distribution, provided the Board confirms that the Company is stable. The Company is treated as stable when all of the following are satisfied:"},{"type":"ul","items":["the Company has recorded positive profit after tax in each of the [four] preceding quarters;","the cash floor under Clause 8.3 has been maintained without breach for [twelve] consecutive months;","committed forward revenue is sufficient to meet the proposed salary cost for not less than [twelve] months;","the Company has no overdue statutory liability and no overdue borrowing."]},{"type":"p","text":"If the stability test is not met by April 2027, the arrangement in Clause 8.4 continues and the test is reassessed at the end of each subsequent quarter. The move to salaries takes effect from the beginning of the quarter following confirmation."}]},{"id":"8.8","title":"Salaries","section":"8. Profit Distribution","blocks":[{"type":"p","text":"Founder salary levels under Phase Two are set by approval under Clause 7, alongside the annual budget, and reviewed annually. Salary is an operating expense of the Company and is deducted before profit is determined."}]},{"id":"8.9","title":"Annual distribution","section":"8. Profit Distribution","blocks":[{"type":"p","text":"From the commencement of Phase Two, distribution is made annually after the close of the financial year and completion of the audit, pro-rata to issued shareholding, by approval under Clause 7."}]},{"id":"8.10","title":"Tax","section":"8. Profit Distribution","blocks":[{"type":"p","text":"Distributions are paid from post-tax profits of the Company and are taxable in the hands of each Shareholder at their applicable rate. The Company shall deduct tax at source as required by law."},{"type":"note","lead":"A point Founders should understand.","text":"A distribution is taxed twice — once as corporate tax in the Company, and again as income in the Shareholder's hands. Salary, by contrast, is deductible for the Company and taxed once. The mix of salary and distribution therefore materially affects what each Founder actually receives, and should be set with the Company's accountant."}]}]},{"num":"9","title":"9. Customer Acquisition Incentive","clauses":[{"id":"9.1","title":"Structure","section":"9. Customer Acquisition Incentive","blocks":[{"type":"p","text":"Each stage of the acquisition process carries an incentive of 2% of total project value, payable to whoever performed that stage. Where a stage does not occur, its allocation passes to the person who carried the deal through that point."},{"type":"table","rows":[["Stage","Earned by","Incentive"],["1 · Lead generation","Whoever personally sources the qualified lead","2%"],["2 · Demo or proof of concept","Whoever builds it; if the deal closes without one, the salesperson","2%"],["3 · Sales conversion","Whoever converts the lead to a signed deal","2%"],["4 · Price premium","Whoever closes above the agreed floor price","2%"],["5 · Delivery and collection","Whoever carries the account to delivery and final payment collected","2%"],["Maximum per deal","","10%"]]}]},{"id":"9.2","title":"Worked example","section":"9. Customer Acquisition Incentive","blocks":[{"type":"p","text":"A ₹10,00,000 project. Srijith sources the lead through a marketing campaign. Varun builds the demo. Sreelal converts the deal and closes it ₹80,000 above the agreed floor. Varun delivers the project and Sreelal collects the final payment."},{"type":"table","rows":[["Stage","Performed by","Incentive","Amount"],["1 · Lead generation","Srijith","2%","₹20,000"],["2 · Demo","Varun","2%","₹20,000"],["3 · Sales conversion","Sreelal","2%","₹20,000"],["4 · Price premium","Sreelal","2%","₹20,000"],["5 · Delivery and collection","Varun and Sreelal, split by agreement","2%","₹20,000"],["Total","","10%","₹1,00,000"]]},{"type":"p","text":"The client pays 40% on signing, 40% on go-live and 20% after thirty days. Incentive is released in the same proportions: ₹40,000 on signing, a further ₹40,000 on go-live, and the final ₹20,000 when the last tranche is collected. If the client defaults on the final 20%, the corresponding ₹20,000 of incentive is never paid."}]},{"id":"9.3","title":"Basis and cap","section":"9. Customer Acquisition Incentive","blocks":[{"type":"p","text":"Incentive is calculated on total project value exclusive of taxes. The total incentive paid on any single sale shall not exceed 10% of that value, however the stages are distributed."}]},{"id":"9.4","title":"Release against collection","section":"9. Customer Acquisition Incentive","blocks":[{"type":"p","text":"Incentive is earned on completion of a stage but released only in proportion to payment actually received from the client. Where 30% of the contract value has been collected, 30% of earned incentive is released. The Company shall not pay incentive on revenue it has not received."}]},{"id":"9.5","title":"Channel-sourced deals","section":"9. Customer Acquisition Incentive","blocks":[{"type":"p","text":"Where a deal is introduced through an external consultant, reseller or referrer who is paid a commission, the stages that partner effectively performed are not paid again internally:"},{"type":"table","rows":[["Scenario","Stages paid internally","Internal incentive"],["Fully internal deal","1, 2, 3, 4, 5","10%"],["Channel sources the lead only","2, 3, 4, 5","8%"],["Channel sources and closes","2, 4, 5","6%"],["Channel sources, closes and manages the account","2, 4","4%"]]},{"type":"p","text":"Channel commission and internal incentive combined shall not exceed [15%] of project value. The floor price for each deal is agreed by the Founders before quotation."},{"type":"note","lead":"Why the incentive is split into stages.","text":"A single commission paid to whoever closes the deal rewards only the last step. Splitting it into five stages means the person who found the lead, the person who built the demo, and the person who delivered the work are each recognised, and it means the incentive follows the work rather than the title. Releasing it against collection rather than signing means the Company never pays incentive on money it has not received, and it aligns everyone's interest with the client actually paying."}]}]},{"num":"10","title":"10. Exit of a Founder","clauses":[{"id":"10.1","title":"Notice","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"A Founder who wishes to cease involvement shall give not less than ninety days' written notice to the Board. During the notice period the Founder remains bound by every obligation in this Agreement, including exclusivity, and shall complete an orderly handover under Clause 10.7."}]},{"id":"10.2","title":"Cessation Date","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"The Cessation Date is the earlier of the expiry of notice, the date the Founder ceases to be actively involved in the Business, or the date the Board resolves that the Founder is a Bad Leaver under Clause 10.4."}]},{"id":"10.3","title":"Good Leaver","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"A Founder is a Good Leaver where they cease involvement by reason of:"},{"type":"ul","items":["resignation after serving full notice and completing handover;","death or permanent incapacity (see Clause 11);","removal by the other Founders otherwise than for a Bad Leaver event;","any circumstance the other Founders unanimously agree in writing to treat as Good Leaver."]},{"type":"p","text":"A Good Leaver retains their Vested Shares. Unvested Shares are repurchased by the Company at nominal value and cancelled or returned to the pool."}]},{"id":"10.4","title":"Bad Leaver","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"A Founder is a Bad Leaver where they:"},{"type":"ul","items":["resign without serving notice or without completing handover;","breach the exclusivity obligation in Clause 3.3, or fail to disclose a material outside interest under Clause 3.4;","breach the confidentiality obligations in Clause 15 or the intellectual property obligations in Clause 16;","commit fraud, dishonesty, misappropriation of Company funds or property, or wilful misconduct materially damaging the Company;","are convicted of an offence involving moral turpitude;","commit a material breach of this Agreement and fail to remedy it within thirty days of written notice."]},{"type":"p","text":"A Bad Leaver forfeits all Unvested Shares at nominal value, and the Company may repurchase their Vested Shares at the lower of Fair Value and the price paid for them."}]},{"id":"10.5","title":"Worked example","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"Two Founders leave at month 30, each holding 20%. At that point 5% vested at the cliff plus 18 months at 0.417% gives 12.5% vested and 7.5% unvested."},{"type":"table","rows":[["","Good Leaver","Bad Leaver"],["Unvested 7.5%","Repurchased at nominal value","Repurchased at nominal value"],["Vested 12.5%","Retained by the Founder","Company may repurchase at the lower of Fair Value and price paid"],["Result","Founder keeps 12.5%","Founder may be left with nothing beyond the price they paid"]]},{"type":"note","lead":"Why the distinction is drawn this way.","text":"A Good Leaver is someone who leaves properly: notice served, handover done, no breach. They keep what they earned. A Bad Leaver is someone whose departure damages the Company: breach, dishonesty, failure to hand over, or building a competing interest while still a Founder. The consequence is severe because the behaviour is. The list of Bad Leaver events is specific and closed, so that no Founder can be labelled a Bad Leaver on a discretionary basis."}]},{"id":"10.6","title":"Repurchase mechanics","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"The Company may exercise its right to repurchase within ninety days of the Cessation Date by written notice. If the Company does not or cannot lawfully repurchase, the remaining Founders may purchase pro-rata to their existing holdings. Completion shall occur within sixty days of the notice, and consideration may be paid in up to [four] equal quarterly instalments where the Board determines that immediate payment would breach the cash floor in Clause 8.3."}]},{"id":"10.7","title":"Handover","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"A departing Founder shall, before the Cessation Date:"},{"type":"ul","items":["transfer all client, supplier and partner relationships to a nominated continuing Founder, including making direct introductions;","deliver up all Company property, documents, devices, credentials, domains, accounts and access;","transfer all code, repositories, designs and work product to Company-controlled accounts;","provide a written handover note covering work in progress, commitments made, and outstanding matters;","resign as a Director and from any office held in the Company or a subsidiary."]},{"type":"p","text":"Repurchase consideration is not payable until handover is complete to the reasonable satisfaction of the Board."}]},{"id":"10.8","title":"Continuing obligations","section":"10. Exit of a Founder","blocks":[{"type":"p","text":"Clauses 15 (Confidentiality), 16 (Intellectual Property) and 17 (Non-Solicitation) survive cessation and continue to bind a former Founder."}]}]},{"num":"11","title":"11. Death and Incapacity","clauses":[{"id":"11","title":"Death and Incapacity","section":"11. Death and Incapacity","blocks":[{"type":"p","text":"On the death or permanent incapacity of a Founder, that Founder is treated as a Good Leaver. Vesting accelerates to the extent of [twelve] additional months from the date of death or incapacity."},{"type":"p","text":"The Company, failing which the remaining Founders pro-rata, shall have an option exercisable within six months to purchase the Vested Shares from the Founder's estate or legal representative at Fair Value, payable in up to [four] equal quarterly instalments."},{"type":"note","lead":"Why this matters.","text":"Without this clause, a deceased Founder's shares pass to their heirs, who become shareholders in a business they have no involvement in and may have no interest in. The option protects both sides — the Company retains coherent ownership, and the family receives a defined value rather than an illiquid minority stake."},{"type":"p","text":"The Founders shall consider taking key person insurance sufficient to fund this obligation."}]}]},{"num":"12","title":"12. Fair Value","clauses":[{"id":"12","title":"Fair Value","section":"12. Fair Value","blocks":[{"type":"p","text":"Where Fair Value is required under this Agreement, it shall be determined as follows:"},{"type":"ul","items":["first, the value agreed in writing between the Company and the outgoing holder within thirty days;","failing agreement, the value determined by an independent registered valuer appointed jointly by the Company and the outgoing holder;","failing joint appointment within fifteen days, a valuer nominated by the Company's statutory auditor."]},{"type":"p","text":"The valuer acts as an expert and not as an arbitrator, and their determination is final and binding save for manifest error. The cost is borne equally by the Company and the outgoing holder, save where the holder is a Bad Leaver, in which case the holder bears it."},{"type":"p","text":"Where a priced equity funding round has completed within the preceding twelve months, the valuation implied by that round shall be the starting point, discounted for the minority and illiquid nature of the holding."},{"type":"note","lead":"Why a valuer rather than a formula.","text":"A fixed formula, such as a multiple of revenue, is simple but breaks in practice: a services company with lumpy revenue can look worth very different amounts depending on which twelve months are measured, and a formula agreed today may be absurd in five years. An independent valuer applies judgement to the Company as it actually is at the time. The recent-round provision gives a starting point where one exists."},{"type":"note","lead":"Settle this before you need it.","text":"Buyback valuation is the single most common source of founder litigation, because it only becomes contentious once relations have already broken down. Agreeing the method now, while everyone is aligned, is what makes it work later."}]}]},{"num":"13","title":"13. Transfer of Shares","clauses":[{"id":"13.1","title":"General restriction","section":"13. Transfer of Shares","blocks":[{"type":"p","text":"No Founder shall sell, transfer, pledge, charge or otherwise dispose of any Share, or any interest in a Share, except in accordance with this Clause. Any purported transfer in breach of this Clause is void and the Company shall not register it."},{"type":"p","text":"Unvested Shares may not be transferred in any circumstances."}]},{"id":"13.2","title":"Right of First Refusal","section":"13. Transfer of Shares","blocks":[{"type":"p","text":"A Founder wishing to transfer Vested Shares shall first give written notice to the Company and the other Founders stating the number of Shares, the price and the identity of any proposed purchaser."},{"type":"ul","items":["The Company may elect to purchase all or part within thirty days.","Any Shares not taken by the Company are offered to the other Founders pro-rata to their holdings, who have a further thirty days to accept.","Only Shares not taken up may be sold to the named third party, at a price not lower and on terms not more favourable than those offered, within ninety days.","Any third-party purchaser must execute a deed of adherence before transfer is registered."]},{"type":"note","lead":"How the right of first refusal runs.","text":"Day 0: the selling Founder gives notice. Days 1 to 30: the Company decides whether to buy. Days 31 to 60: the other Founders decide on anything the Company did not take. Days 61 to 150: the seller may complete with the named third party, on terms no better than those offered internally. The purpose is that shares in a three- person company never end up with a stranger unless the other two have declined to buy them first."}]},{"id":"13.3","title":"Permitted transfers","section":"13. Transfer of Shares","blocks":[{"type":"p","text":"A Founder may transfer Shares to a family trust or holding entity wholly owned and controlled by that Founder, provided the transferee executes a deed of adherence and the Shares transfer back if that control ceases. Such transfers do not trigger Clause 13.2."}]},{"id":"13.4","title":"Tag-along","section":"13. Transfer of Shares","blocks":[{"type":"p","text":"If Founders holding more than 50% of the issued share capital propose to sell to a third party, each remaining Founder may require the purchaser to acquire their Shares on the same terms and at the same price per Share, pro-rata."}]},{"id":"13.5","title":"Drag-along","section":"13. Transfer of Shares","blocks":[{"type":"p","text":"If Founders holding not less than [75%] of the issued share capital accept a bona fide offer for the entire share capital, they may require the remaining Founders to sell their Shares on the same terms and at the same price per Share."},{"type":"note","lead":"Tag and drag work together.","text":"Tag-along protects a minority holder from being left behind in a sale. Drag-along prevents a small holder from blocking a sale the majority wants. A well-drafted agreement has both, and both apply at the same price per share."}]},{"id":"13.6","title":"Lock-in","section":"13. Transfer of Shares","blocks":[{"type":"p","text":"No Founder shall transfer any Share to a third party before the [second] anniversary of the Effective Date, save with approval under Clause 7."}]}]},{"num":"14","title":"14. External Investment and Dilution","clauses":[{"id":"14.1","title":"Approval","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Raising external investment, and the valuation and terms of any round, require approval under Clause 7. No Founder shall negotiate, commit to or accept investment on behalf of the Company without that approval."}]},{"id":"14.2","title":"How dilution operates","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Where the Company issues new Shares to an investor, no existing holder transfers Shares. The total number of Shares increases and each existing percentage reduces by the same proportion. Money raised is received by the Company."},{"type":"table","rows":[["Holder","Current","Investor 15%","Investor 20%","Investor 25%"],["Sreelal K","45%","38.25%","36.00%","33.75%"],["Varun","31%","26.35%","24.80%","23.25%"],["Srijith","20%","17.00%","16.00%","15.00%"],["ESOP Pool","4%","3.40%","3.20%","3.00%"]]},{"type":"p","text":"Dilution applies uniformly and shall never be applied selectively to one Founder."}]},{"id":"14.3","title":"Dilution and vesting","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Vesting and dilution operate independently. A funding round reduces the vested and unvested portions of a holding in the same proportion. It does not accelerate, pause or reset vesting. Shares already vested remain vested."},{"type":"p","text":"Where an investor requires the vesting schedule to be re-set from the date of investment, that requirement shall be considered by all Founders together and, if accepted, applied uniformly."}]},{"id":"14.4","title":"Pre-emption","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Before Shares are issued to any third party, each Founder shall be offered the right to subscribe for their proportionate share on the same terms, exercisable within twenty-one days. This preserves the ability of any Founder to maintain their percentage by investing alongside."}]},{"id":"14.5","title":"Option pool","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Where an investor requires an employee option pool to be created or increased as a condition of investment, the Founders shall agree before signing any term sheet whether the pool is created pre-money or post-money, and shall record the effect on each holding. A pool created pre-money is borne by the Founders alone."}]},{"id":"14.6","title":"Where the raise happens","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Investment may be taken at the level of the Company or into a subsidiary or product entity. Investment into a subsidiary does not dilute holdings in the Company. The Founders shall decide deliberately, for each opportunity, at which level the raise occurs."},{"type":"note","lead":"Why raise at subsidiary level where possible.","text":"If the Company raises money into Darcio Labs itself, every Founder dilutes and the reserved-matter arithmetic in Clause 7 shifts. If instead a specific product is placed in a subsidiary and the investor buys into that subsidiary, the Founders' holdings in Darcio Labs are untouched and the investor's rights are confined to the product they funded. This is not always possible, since investors often prefer the parent, but it should be the Founders' starting position."}]},{"id":"14.7","title":"Information rights","section":"14. External Investment and Dilution","blocks":[{"type":"p","text":"Every Founder is entitled, before any investment is agreed, to the term sheet, the proposed cap table before and after the round, and the financial information necessary to assess the proposal. No Founder shall be asked to approve a round without this."}]}]},{"num":"15","title":"15. Confidentiality","clauses":[{"id":"15.1","title":"Definition","section":"15. Confidentiality","blocks":[{"type":"p","text":"\"Confidential Information\" means all non-public information relating to the Company or its clients, including: source code, architecture and technical designs; product roadmaps; client and prospect lists and relationships; pricing, quotations, floor prices and margins; commercial terms with clients, partners and suppliers; financial information; business plans and strategy; employee and contractor information; and any information a reasonable person would understand to be confidential."},{"type":"p","text":"Client data held by the Company — including personal and regulated data such as identity documents, medical certificates and financial records — is Confidential Information of the highest sensitivity."},{"type":"note","lead":"Why client data is singled out.","text":"The Company builds systems that hold identity documents, medical certificates and financial records belonging to clients' students, staff and customers. A breach of that data is not only a commercial harm to the Company; it is a regulatory and reputational event that could end the relationship with the client and expose the Company to liability. Founders handle this data routinely and must treat it as the most sensitive thing the Company holds."}]},{"id":"15.2","title":"Obligation","section":"15. Confidentiality","blocks":[{"type":"p","text":"Each Founder shall keep Confidential Information secret, use it only for the purposes of the Business, and not disclose it to any third party without written authorisation. This obligation continues without limit of time and survives cessation of involvement."}]},{"id":"15.3","title":"Exceptions","section":"15. Confidentiality","blocks":[{"type":"p","text":"The obligation does not apply to information that is or becomes public other than through breach, was lawfully known before disclosure, or is required to be disclosed by law or a regulator — in which case the Founder shall give the Company prompt notice where lawful to do so."}]},{"id":"15.4","title":"Return","section":"15. Confidentiality","blocks":[{"type":"p","text":"On cessation, or on request, a Founder shall return or irretrievably delete all Confidential Information in their possession and confirm having done so in writing."}]}]},{"num":"16","title":"16. Intellectual Property","clauses":[{"id":"16.1","title":"Assignment","section":"16. Intellectual Property","blocks":[{"type":"p","text":"Each Founder assigns to the Company, with full title guarantee and free of encumbrance, all intellectual property rights in all work product created by them in connection with the Business, whether created before or after the Effective Date. This includes source code, designs, documentation, brand assets, trade marks, domain names, databases and know-how."}]},{"id":"16.2","title":"Pre-existing intellectual property","section":"16. Intellectual Property","blocks":[{"type":"p","text":"Any intellectual property owned by a Founder before the Effective Date and not assigned is listed in Schedule 2. Where such property is used in the Business, the Founder grants the Company a perpetual, irrevocable, worldwide, royalty- free licence to use, modify and sublicense it. Anything not listed in Schedule 2 is deemed assigned."}]},{"id":"16.3","title":"Custody of assets","section":"16. Intellectual Property","blocks":[{"type":"p","text":"All repositories, domains, hosting accounts, design files and credentials shall be held in accounts owned and controlled by the Company. No Company asset shall be held solely in a personal account of any Founder."},{"type":"note","lead":"This clause is urgent, not routine.","text":"Where product code currently sits in personal repositories, the Company does not own its principal asset. This matters for client contracts, for any future investment or acquisition, and for the simple question of what the Company holds. Transfer of custody under Clause 16.3 should be completed immediately on execution."}]},{"id":"16.4","title":"Moral rights and further assurance","section":"16. Intellectual Property","blocks":[{"type":"p","text":"Each Founder waives such moral rights in the work product as may lawfully be waived, and shall execute any further document reasonably required to perfect the Company's title."}]}]},{"num":"17","title":"17. Non-Solicitation and Restrictive Covenants","clauses":[{"id":"17.1","title":"During involvement","section":"17. Non-Solicitation and Restrictive Covenants","blocks":[{"type":"p","text":"While a Founder holds Shares and is involved in the Business, the exclusivity obligation in Clause 3.3 applies in full."}]},{"id":"17.2","title":"Non-solicitation after cessation","section":"17. Non-Solicitation and Restrictive Covenants","blocks":[{"type":"p","text":"For [twelve] months after the Cessation Date, a former Founder shall not:"},{"type":"ul","items":["solicit or entice away any employee, contractor or consultant of the Company with whom they had material dealings;","solicit, canvass or accept business from any client or prospective client of the Company with whom they had material dealings in the twelve months before cessation, in respect of services competing with the Business;","interfere with the relationship between the Company and any client, supplier or channel partner."]}]},{"id":"17.3","title":"Non-compete","section":"17. Non-Solicitation and Restrictive Covenants","blocks":[{"type":"p","text":"For [twelve] months after the Cessation Date, a former Founder shall not establish, join or hold a material interest in a business that competes directly with the Business within India."},{"type":"note","lead":"Enforceability under Indian law.","text":"Section 27 of the Indian Contract Act, 1872 renders agreements in restraint of trade void, and Indian courts have consistently declined to enforce post-termination non-compete clauses against former employees and founders. Clause 17.3 is therefore likely to be unenforceable as drafted and is included as a statement of expectation rather than a reliable remedy. By contrast, the exclusivity obligation during involvement (Clause 3.3), non-solicitation (Clause 17.2) and confidentiality (Clause 15) are enforceable, and are the provisions on which the Company should rely. This should be confirmed with the Company's lawyer."}]},{"id":"17.4","title":"Severability of covenants","section":"17. Non-Solicitation and Restrictive Covenants","blocks":[{"type":"p","text":"Each covenant in this Clause is separate and severable. If any is held unenforceable in whole or in part, the remainder continue in full force, and any covenant held excessive shall apply with such modification as makes it enforceable."}]}]},{"num":"18","title":"18. Deadlock and Dispute Resolution","clauses":[{"id":"18.1","title":"Deadlock","section":"18. Deadlock and Dispute Resolution","blocks":[{"type":"p","text":"A deadlock arises where a reserved matter is proposed at two consecutive meetings and fails to obtain the required approval on both occasions."},{"type":"p","text":"On a deadlock, the Founders shall meet within fourteen days and attempt in good faith to resolve the matter. If unresolved, the Founders shall jointly appoint an independent mediator experienced in the technology sector, whose recommendation shall be considered but is not binding."},{"type":"p","text":"If the deadlock concerns a matter necessary for the Company to continue operating and remains unresolved for sixty days, any Founder may invoke Clause 18.2."},{"type":"note","lead":"Why mediation before arbitration.","text":"Most founder disagreements are not legal disputes; they are differences of judgement between people who still have to work together tomorrow. Mediation gives a structured way to resolve those without either side lawyering up. Arbitration is reserved for genuine disputes about rights under this Agreement, and is chosen over court because it is private, faster, and seated locally."}]},{"id":"18.2","title":"Disputes","section":"18. Deadlock and Dispute Resolution","blocks":[{"type":"p","text":"Any dispute arising out of or in connection with this Agreement shall be referred to arbitration under the Arbitration and Conciliation Act, 1996, before a sole arbitrator appointed by agreement between the parties, failing which by the [High Court of Kerala]. The seat of arbitration is Ernakulam, Kerala, and the proceedings shall be in English."},{"type":"p","text":"Nothing in this Clause prevents a party from seeking urgent interim relief from a court, particularly to restrain a breach of Clause 15, 16 or 17."}]}]},{"num":"19","title":"19. General","clauses":[{"id":"19.1","title":"Founder loans and further capital","section":"19. General","blocks":[{"type":"p","text":"Where a Founder contributes funds to the Company beyond their subscription, that contribution is treated as an unsecured interest-free loan repayable on terms approved under Clause 7, and does not entitle the Founder to additional Shares unless expressly agreed in writing before the contribution is made."}]},{"id":"19.2","title":"Insurance and records","section":"19. General","blocks":[{"type":"p","text":"The Company shall maintain proper books of account, and shall consider directors' and officers' liability insurance and key person insurance as the Business grows."}]},{"id":"19.3","title":"Amendment","section":"19. General","blocks":[{"type":"p","text":"This Agreement may be amended only in writing signed by all Founders."}]},{"id":"19.4","title":"Entire agreement","section":"19. General","blocks":[{"type":"p","text":"This Agreement, together with the documents referred to in it, constitutes the entire agreement between the Founders in respect of its subject matter and supersedes all prior arrangements, whether written or oral. Where this Agreement conflicts with the Articles of Association, the Founders shall so far as lawful give effect to this Agreement and shall procure amendment of the Articles."}]},{"id":"19.5","title":"Severability","section":"19. General","blocks":[{"type":"p","text":"If any provision is held invalid or unenforceable, the remainder continues in full force."}]},{"id":"19.6","title":"Notices","section":"19. General","blocks":[{"type":"p","text":"Notices shall be in writing and delivered by hand, by registered post, or by email to the address recorded in Schedule 1, and are deemed received on delivery or, for email, on the next business day."}]},{"id":"19.7","title":"Governing law","section":"19. General","blocks":[{"type":"p","text":"This Agreement is governed by the laws of India and, subject to Clause 18.2, the courts at Ernakulam, Kerala have jurisdiction."}]},{"id":"19.8","title":"Counterparts","section":"19. General","blocks":[{"type":"p","text":"This Agreement may be executed in counterparts, each of which is an original and which together constitute one agreement."}]}]},{"num":"","title":"Schedule 1 — Founder Details and Vesting Commencement","clauses":[{"id":"Schedule 1","title":"Schedule 1 — Founder Details and Vesting Commencement","section":"Schedule 1 — Founder Details and Vesting Commencement","blocks":[{"type":"table","rows":[["Founder","Email","Vesting Commencement Date"],["Sreelal K","",""],["Varun","",""],["Srijith","",""]]}]}]},{"num":"","title":"Schedule 2 — Pre-Existing Intellectual Property","clauses":[{"id":"Schedule 2","title":"Schedule 2 — Pre-Existing Intellectual Property","section":"Schedule 2 — Pre-Existing Intellectual Property","blocks":[{"type":"p","text":"Intellectual property owned by a Founder before the Effective Date and excluded from the assignment in Clause 16.1. Anything not listed here is deemed assigned to the Company."},{"type":"table","rows":[["Founder","Description of IP","Licensed to Company?"],["","",""],["","",""]]}]}]},{"num":"","title":"Schedule 3 — Disclosed Outside Interests","clauses":[{"id":"Schedule 3","title":"Schedule 3 — Disclosed Outside Interests","section":"Schedule 3 — Disclosed Outside Interests","blocks":[{"type":"p","text":"Business interests, directorships, shareholdings and engagements held by each Founder outside the Company, as required by Clause 3.4."},{"type":"table","rows":[["Founder","Entity","Nature of interest","Time commitment"],["","","",""],["","","",""]]}]}]},{"num":"","title":"Execution","clauses":[{"id":"Execution","title":"Execution","section":"Execution","blocks":[{"type":"p","text":"This Agreement is executed on the date first written above."},{"type":"p","text":"Sreelal K · CEO & Co-Founder"},{"type":"p","text":"Varun · CTO & Co-Founder"},{"type":"p","text":"Srijith · Co-Founder & VP Marketing"},{"type":"p","text":"For and on behalf of Darcio Labs Private Limited"}]}]}]</script>
+<script>
+(function(){
+'use strict';
+const SECTIONS = JSON.parse(document.getElementById('clauses-data').textContent);
+const CLAUSES = []; SECTIONS.forEach(s => s.clauses.forEach(c => CLAUSES.push(c)));
+const BY_ID = Object.fromEntries(CLAUSES.map(c => [c.id, c]));
+const STATUS_LABEL = { pending: 'Not yet reviewed', approved: 'Include as drafted', flagged: 'Needs modification', rejected: 'Cannot be implemented' };
+const POLL_MS = 20000;
+const LS_TOKEN = 'darcio-fa-token', LS_USER = 'darcio-fa-user', LS_LOCAL = 'darcio-fa-local-entries';
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+let token = null, user = null;
+let entries = [];          // all entries, newest last
+let storageShared = null;  // true = shared store, false = device only
+let filter = 'all';
+let pollTimer = null;
+let openComposer = {};     // clauseId -> {mode:'approved'|'flagged'|'rejected'|'comment'}
+
+// ---------- time ----------
+const fmtDT = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true });
+const fmtT = new Intl.DateTimeFormat('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+function when(iso){ try { return fmtDT.format(new Date(iso)) + ' IST'; } catch (e) { return iso; } }
+
+// ---------- auth ----------
+try { token = localStorage.getItem(LS_TOKEN); user = JSON.parse(localStorage.getItem(LS_USER) || 'null'); } catch (e) {}
+
+async function api(path, opts){
+  const o = Object.assign({ headers: {} }, opts || {});
+  o.headers['Content-Type'] = 'application/json';
+  if (token) o.headers['Authorization'] = 'Bearer ' + token;
+  const r = await fetch(path, o);
+  let j = null; try { j = await r.json(); } catch (e) {}
+  if (r.status === 401 && path !== '/api/login') { signOut(); throw new Error('Session expired. Please sign in again.'); }
+  if (!r.ok || !j || !j.ok) throw new Error((j && j.error) || ('Request failed (' + r.status + ')'));
+  return j;
+}
+
+function showLogin(msg){
+  $('appView').hidden = true; $('loginView').hidden = false;
+  $('loginError').textContent = msg || '';
+  setTimeout(() => $('u').focus(), 0);
+}
+function signOut(){
+  token = null; user = null;
+  try { localStorage.removeItem(LS_TOKEN); localStorage.removeItem(LS_USER); } catch (e) {}
+  if (pollTimer) clearInterval(pollTimer);
+  showLogin('');
+}
+$('loginForm').addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const btn = $('loginBtn'); btn.disabled = true; $('loginError').textContent = '';
+  try {
+    const j = await api('/api/login', { method: 'POST', body: JSON.stringify({ username: $('u').value, password: $('p').value }) });
+    token = j.token; user = j.user;
+    try { localStorage.setItem(LS_TOKEN, token); localStorage.setItem(LS_USER, JSON.stringify(user)); } catch (e) {}
+    $('p').value = '';
+    await enterApp();
+  } catch (e) { $('loginError').textContent = e.message; }
+  btn.disabled = false;
+});
+$('logoutBtn').addEventListener('click', signOut);
+
+// ---------- state ----------
+function localEntries(){ try { return JSON.parse(localStorage.getItem(LS_LOCAL) || '[]'); } catch (e) { return []; } }
+function saveLocal(list){ try { localStorage.setItem(LS_LOCAL, JSON.stringify(list)); } catch (e) {} }
+
+async function refresh(quiet){
+  try {
+    const j = await api('/api/state');
+    storageShared = !!j.storage;
+    entries = (storageShared ? j.entries : localEntries()).slice().sort((a, b) => a.at < b.at ? -1 : a.at > b.at ? 1 : 0);
+    if (j.user) { user = j.user; }
+    setSync(true, 'Live · checked ' + fmtT.format(new Date()));
+    $('banner').hidden = storageShared;
+    if (!storageShared) $('banner').innerHTML = '<b>Shared storage is not connected yet.</b> Your ticks and comments are being saved on this device only and other reviewers cannot see them. Ask the person who set up this page to connect the Vercel Redis store, then everything syncs automatically.';
+    renderAll();
+  } catch (e) {
+    if (!token) return;
+    setSync(false, 'Offline · ' + e.message);
+    if (!quiet) toast(e.message);
+  }
+}
+function setSync(ok, text){ $('syncDot').className = 'dot ' + (ok ? (storageShared ? 'live' : 'off') : 'off'); $('syncText').textContent = text; }
+
+async function submit(clauseId, type, status, text){
+  const payload = { clauseId, type, status, text };
+  const j = await api('/api/state', { method: 'POST', body: JSON.stringify(payload) });
+  if (!j.saved) {
+    const list = localEntries(); list.push(j.entry); saveLocal(list);
+  }
+  await refresh(true);
+  return j.entry;
+}
+
+// ---------- derived ----------
+function clauseState(id){
+  const list = entries.filter(e => e.clauseId === id);
+  let status = 'pending', statusEntry = null;
+  for (const e of list) if (e.type === 'status') { status = e.status; statusEntry = e; }
+  return { status, statusEntry, list };
+}
+function counts(){
+  const c = { pending: 0, approved: 0, flagged: 0, rejected: 0 };
+  CLAUSES.forEach(cl => { c[clauseState(cl.id).status]++; });
+  return c;
+}
+function initials(name){ return String(name || '?').replace(/\(.*?\)/g, '').trim().split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase(); }
+
+// ---------- render: text blocks ----------
+function renderBlocks(blocks){
+  return blocks.map(b => {
+    if (b.type === 'p') return '<p>' + (b.lead ? '<span class="lead">' + esc(b.lead) + '</span> ' : '') + esc(b.text) + '</p>';
+    if (b.type === 'ul') return '<ul>' + b.items.map(i => '<li>' + esc(i) + '</li>').join('') + '</ul>';
+    if (b.type === 'note') return '<div class="note"><span class="note-tag">Explanatory note</span><b>' + esc(b.lead) + '</b> ' + esc(b.text) + '</div>';
+    if (b.type === 'table') {
+      const [head, ...rows] = b.rows;
+      return '<div class="tbl"><table><thead><tr>' + head.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr></thead><tbody>' +
+        rows.map(r => '<tr>' + r.map(c => '<td>' + esc(c) + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>';
+    }
+    return '';
+  }).join('');
+}
+
+// ---------- render: clause ----------
+function renderClause(cl){
+  const st = clauseState(cl.id);
+  const comp = openComposer[cl.id];
+  const on = (s) => st.status === s ? ' on' : '';
+  const composerHtml = comp ? `
+    <div class="composer" data-composer="${esc(cl.id)}">
+      <label for="tx-${esc(cl.id)}">${comp.mode === 'approved' ? 'Optional note for "Include as drafted"' : comp.mode === 'flagged' ? 'What needs to change, and why (required)' : comp.mode === 'rejected' ? 'Why this cannot be implemented (required)' : 'Comment'}</label>
+      <textarea id="tx-${esc(cl.id)}" placeholder="${comp.mode === 'approved' ? 'e.g. Fine as drafted; reflect in AoA clause 12.' : comp.mode === 'flagged' ? 'Explain the change needed so everyone can follow.' : comp.mode === 'rejected' ? 'Explain the legal or practical reason.' : 'Add context, a question, or a reply.'}"></textarea>
+      <div class="row"><span class="err" data-err></span>
+        <button class="btn btn-sm" data-act="cancel">Cancel</button>
+        <button class="btn btn-sm btn-primary" data-act="save">${comp.mode === 'comment' ? 'Post comment' : 'Save decision'}</button></div>
+    </div>` : '';
+  const hist = st.list.slice().reverse();
+  const histHtml = hist.length ? '<ul class="history">' + hist.map(e => `
+    <li><span class="who" title="${esc(e.byName)}">${esc(initials(e.byName))}</span>
+      <span class="when">${esc(e.byName)} · ${esc(when(e.at))}</span>
+      <span class="what">${e.type === 'status' ? '<span class="tag ' + esc(e.status) + '">' + esc(STATUS_LABEL[e.status] || e.status) + '</span>' : '<span class="tag">Comment</span>'}${e.text ? '<div class="body">' + esc(e.text) + '</div>' : ''}</span></li>`).join('') + '</ul>'
+    : '<div class="small">No review activity yet.</div>';
+  return `
+  <article class="clause st-${st.status}" id="clause-${esc(cl.id)}" data-status="${st.status}">
+    <div class="clause-head"><span class="id">${esc(cl.id)}</span><h3>${esc(cl.title)}</h3>
+      <span class="pill ${st.status}">${esc(STATUS_LABEL[st.status])}</span></div>
+    <div class="clause-body">
+      <div class="text">${renderBlocks(cl.blocks)}</div>
+      <div class="review" data-clause="${esc(cl.id)}">
+        <h4>Decision</h4>
+        <div class="choices">
+          <button class="choice approve${on('approved')}" data-choice="approved"><span class="ic">✓</span><span><b>Include as drafted</b><span>Can go into the Articles exactly as written here</span></span></button>
+          <button class="choice flag${on('flagged')}" data-choice="flagged"><span class="ic">!</span><span><b>Needs modification</b><span>Can be included, but not in this exact shape</span></span></button>
+          <button class="choice reject${on('rejected')}" data-choice="rejected"><span class="ic">✕</span><span><b>Cannot be implemented</b><span>Reject with an explanation</span></span></button>
+        </div>
+        ${st.status !== 'pending' && !comp ? '<button class="linkish" data-choice="pending">Reset to not yet reviewed</button>' : ''}
+        ${composerHtml}
+        ${!comp ? '<div><button class="btn btn-sm" data-choice="comment">Add a comment</button></div>' : ''}
+        <h4>History</h4>
+        ${histHtml}
+      </div>
+    </div>
+  </article>`;
+}
+
+function renderMain(){
+  const html = SECTIONS.map(sec => {
+    const visible = sec.clauses.filter(cl => filter === 'all' || clauseState(cl.id).status === filter);
+    if (!visible.length) return '';
+    return `<div class="section-head" id="sec-${esc(sec.title.replace(/\W+/g, '-'))}"><span class="n">${esc(sec.num ? 'Clause ' + sec.num : '')}</span><h2>${esc(sec.title.replace(/^\d+\.\s+/, ''))}</h2></div>` +
+      visible.map(renderClause).join('');
+  }).join('');
+  $('main').innerHTML = html || '<div class="empty">Nothing matches this filter.</div>';
+  // restore composer text focus
+  const openIds = Object.keys(openComposer);
+  if (openIds.length) { const ta = document.getElementById('tx-' + openIds[openIds.length - 1]); if (ta && document.activeElement !== ta && openComposer[openIds[openIds.length - 1]].focus) { ta.focus(); openComposer[openIds[openIds.length - 1]].focus = false; } }
+}
+
+function renderSide(){
+  const c = counts(), total = CLAUSES.length;
+  const order = ['pending', 'approved', 'flagged', 'rejected'];
+  $('stats').innerHTML = order.map(s => `<button class="stat s-${s}${filter === s ? ' active' : ''}" data-filter="${s}"><b>${c[s]}</b><span>${esc(STATUS_LABEL[s])}</span></button>`).join('');
+  $('bar').innerHTML = ['approved', 'flagged', 'rejected'].map(s => `<i class="${s}" style="width:${(c[s] / total * 100).toFixed(1)}%"></i>`).join('');
+  $('nav').innerHTML = `<li><button data-filter="all" style="${filter === 'all' ? 'color:var(--ink);font-weight:500' : ''}"><span class="n">∑</span>All clauses<span class="cnt">${total}</span></button></li>` +
+    SECTIONS.map(sec => {
+      const sc = { approved: 0, flagged: 0, rejected: 0 };
+      sec.clauses.forEach(cl => { const s = clauseState(cl.id).status; if (sc[s] !== undefined) sc[s]++; });
+      const dots = ['approved', 'flagged', 'rejected'].filter(s => sc[s]).map(s => `<i style="background:var(--${s === 'approved' ? 'ok' : s === 'flagged' ? 'warn' : 'bad'})" title="${sc[s]} ${STATUS_LABEL[s]}"></i>`).join('');
+      return `<li><button data-jump="sec-${esc(sec.title.replace(/\W+/g, '-'))}"><span class="n">${esc(sec.num || '§')}</span><span>${esc(sec.title.replace(/^\d+\.\s+/, ''))}</span><span class="cnt">${dots}</span></button></li>`;
+    }).join('');
+  const feed = entries.slice().reverse().slice(0, 60);
+  $('feed').innerHTML = feed.length ? feed.map(e => `<li data-jump="clause-${esc(e.clauseId)}">
+      <div class="meta"><span>${esc(e.byName)}</span><span>${esc(when(e.at))}</span></div>
+      <div><b>${esc(e.clauseId)}</b> ${esc(BY_ID[e.clauseId] ? BY_ID[e.clauseId].title : '')} — ${e.type === 'status' ? esc(STATUS_LABEL[e.status] || e.status) : 'Comment'}</div>
+      ${e.text ? '<div class="txt">' + esc(e.text) + '</div>' : ''}</li>`).join('') : '<li class="empty" style="cursor:default;border:0">No activity yet.</li>';
+}
+function renderAll(){ renderSide(); renderMain(); }
+
+// ---------- events ----------
+document.addEventListener('click', async (ev) => {
+  const t = ev.target.closest('button, li[data-jump]');
+  if (!t) return;
+  if (t.dataset.filter) { filter = t.dataset.filter; renderAll(); $('side').classList.remove('open'); window.scrollTo({ top: 0 }); return; }
+  if (t.dataset.jump) {
+    if (filter !== 'all' && t.dataset.jump.startsWith('clause-')) { filter = 'all'; renderAll(); }
+    const el = document.getElementById(t.dataset.jump);
+    $('side').classList.remove('open');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return;
+  }
+  if (t.dataset.tab) {
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('active', b === t));
+    $('tab-nav').hidden = t.dataset.tab !== 'nav'; $('tab-feed').hidden = t.dataset.tab !== 'feed';
+    return;
+  }
+  const review = t.closest('.review');
+  if (review && t.dataset.choice) {
+    const id = review.dataset.clause;
+    if (t.dataset.choice === 'pending') {
+      if (!confirm('Reset clause ' + id + ' to "Not yet reviewed"? The history is kept.')) return;
+      try { await submit(id, 'status', 'pending', ''); toast('Clause ' + id + ' reset.'); } catch (e) { toast(e.message); }
+      return;
+    }
+    openComposer = { [id]: { mode: t.dataset.choice, focus: true } };
+    renderMain();
+    return;
+  }
+  const comp = t.closest('[data-composer]');
+  if (comp && t.dataset.act) {
+    const id = comp.dataset.composer, mode = openComposer[id].mode;
+    if (t.dataset.act === 'cancel') { delete openComposer[id]; renderMain(); return; }
+    const ta = comp.querySelector('textarea'), err = comp.querySelector('[data-err]');
+    const text = ta.value.trim();
+    if ((mode === 'flagged' || mode === 'rejected' || mode === 'comment') && !text) { err.textContent = 'Please write an explanation first.'; ta.focus(); return; }
+    t.disabled = true; err.textContent = '';
+    try {
+      if (mode === 'comment') await submit(id, 'comment', undefined, text);
+      else await submit(id, 'status', mode, text);
+      delete openComposer[id];
+      toast('Clause ' + id + ': ' + (mode === 'comment' ? 'comment posted' : STATUS_LABEL[mode]) + (storageShared ? ' · saved for everyone' : ' · saved on this device only'));
+      renderMain();
+    } catch (e) { err.textContent = e.message; t.disabled = false; }
+  }
+});
+document.addEventListener('keydown', (ev) => {
+  if ((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter') {
+    const comp = ev.target.closest && ev.target.closest('[data-composer]');
+    if (comp) comp.querySelector('[data-act="save"]').click();
+  }
+});
+$('menuBtn').addEventListener('click', () => $('side').classList.toggle('open'));
+$('printBtn').addEventListener('click', () => { const f = filter; filter = 'all'; renderMain(); window.print(); filter = f; renderMain(); });
+$('exportBtn').addEventListener('click', () => {
+  const rows = [['Clause', 'Title', 'Section', 'Decision', 'Decided by', 'Decided at (IST)', 'Decision note', 'All comments']];
+  CLAUSES.forEach(cl => {
+    const st = clauseState(cl.id);
+    const comments = st.list.filter(e => e.type === 'comment').map(e => `[${when(e.at)} ${e.byName}] ${e.text}`).join(' | ');
+    rows.push([cl.id, cl.title, cl.section, STATUS_LABEL[st.status], st.statusEntry ? st.statusEntry.byName : '', st.statusEntry ? when(st.statusEntry.at) : '', st.statusEntry ? st.statusEntry.text : '', comments]);
+  });
+  const csv = '﻿' + rows.map(r => r.map(v => '"' + String(v ?? '').replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'darcio-founders-agreement-review-' + new Date().toISOString().slice(0, 10) + '.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+});
+document.addEventListener('visibilitychange', () => { if (!document.hidden && token) refresh(true); });
+
+let toastTimer;
+function toast(msg){ const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 3200); }
+
+async function enterApp(){
+  $('loginView').hidden = true; $('appView').hidden = false;
+  $('whoName').textContent = user ? user.name : ''; $('whoRole').textContent = user ? user.role : '';
+  renderAll();
+  await refresh(false);
+  $('whoName').textContent = user ? user.name : ''; $('whoRole').textContent = user ? user.role : '';
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(() => refresh(true), POLL_MS);
+}
+
+if (token && user) enterApp(); else showLogin('');
+})();
+</script>
+</body>
+</html>
