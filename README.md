@@ -1,6 +1,6 @@
 # Darcio Founders' Agreement — clause review page
 
-A single-page review tool for the Darcio Labs Founders' Agreement. Each clause of the
+A single-page review tool (shared storage: Convex) for the Darcio Labs Founders' Agreement. Each clause of the
 agreement is shown with three decisions: **Include as drafted**, **Needs modification**
 (explanation required) and **Cannot be implemented** (explanation required), plus free
 comments. Every decision and comment is stamped with the server time and the reviewer's
